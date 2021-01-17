@@ -8,8 +8,8 @@
 <body>
     <div class="container-fluid">
         <form method="post">
-            <div class="form-row">
-                <div class="form-group col-md-10">
+            <div class="row">
+                <div class="form-group col-10">
                     <label for="q">Начните вводить название файла</label>
                     <input type="text" name="q" class="form-control" id="q" placeholder="название файла" list="files" autocomplete="off">
                     <datalist id="files">
@@ -20,8 +20,9 @@
                         {{ end }}
                     </datalist>
                 </div>
-                <div class="form-group col-md-2">
-                    <input type="submit" class="form-control" id="submit" name="submit" value="Найти!" placeholder="Найти!">
+                <div class="form-group col-2">
+                    <label for="submit"></label>
+                    <input type="submit" class="form-control btn btn-info" id="submit" name="submit" value="Найти!" placeholder="Найти!">
                 </div>
 
             </div>

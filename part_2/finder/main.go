@@ -34,7 +34,7 @@ func (f Finder) MakeHash() Finder{
 		f.Hash = make(map[string]string)
 	}
 	filepath.Walk(f.Homedir, func(wPath string, info os.FileInfo, err error) error {
-		// Обход директории без вывода
+		// скрываем всякие мусорные файлы
 		if err != nil {
 			return err
 		}
@@ -53,9 +53,11 @@ func (f Finder) MakeHash() Finder{
 		if strings.Contains(wPath, "__pycache__") {
 			return nil
 		}
+		// если файл директория, мы ее так же не добавляем
 		if info.IsDir() {
 			return nil
 		}
+		// пишем в хеш файл
 		f.Hash[info.Name()] = wPath
 		return nil
 	})
